@@ -22,8 +22,18 @@
 # プロジェクトに移動
 cd hyokaproject
 
+# 依存ライブラリ解消
+pip3 install -r requirements.txt 
+
 # 79，80行目付近, ユーザ名とパスワードなどをローカルDB用に変更
 hyokaproject/settings.py
+
+# mysql or mariadb、hyokaproject_developを手動でも作れる
+mysql -u root -p
+create database hyokaproject_develop;
+
+# DBマイグレーションをする
+python manage.py migrate
 
 # before_param, after_paramに比較する顔写真を設定
 # 必要であれば、golden-eagleと通常の精度評価を調整
@@ -33,6 +43,6 @@ hyokaproject/settings.py
 python manage.py runserver  
 ```
 
-_※ 上記設定例を参考にライセンスの範囲で使用する。_
+_※ 上記設定例は、必要があれば更新する。_
 
 > 更新: 2025/08/27 🆙
