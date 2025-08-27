@@ -1,0 +1,10 @@
+cmake
+django
+dlib
+face-recognition
+golden-eagle
+imutils
+mysqlclient
+numpy
+opencv-python
+python-dotenv
