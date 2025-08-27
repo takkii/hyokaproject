@@ -12,11 +12,11 @@
 
 - [x] 精度評価、アタリの単語をランダムで表示する
 
-- [x] アタリとハズレで色付け、ハズレのメッセージを英文で追加しました。
+- [x] アタリとハズレで色付け、ハズレのメッセージを英文で追加する
 
-- [x] python-dotenv、値やPATHの直書きを封じました。
+- [x] python-dotenv、通常の精度評価の浮動小数点数やPATHの直書きを封じる
 
-- [x] golden-eagle、精度評価を.envから呼び出す仕様にしました。
+- [x] golden-eagle、上記と同様に精度評価の浮動小数点数を.envから呼び出す仕様にする
 
 ```markdown
 # プロジェクトに移動
@@ -25,18 +25,20 @@ cd hyokaproject
 # 依存ライブラリ解消
 pip3 install -r requirements.txt 
 
-# 79，80行目付近, ユーザ名とパスワードなどをローカルDB用に変更
+# 79，80行目付近, ユーザ名とパスワードなどローカルDB用に変更
 hyokaproject/settings.py
 
-# mysql or mariadb、hyokaproject_developを手動でも作れる
+※ DBは現在使わないので、起動のために必要。
+
+# mysql or mariadb、hyokaproject_developを手動で作る
 mysql -u root -p
 create database hyokaproject_develop;
 
 # DBマイグレーションをする
 python manage.py migrate
 
-# before_param, after_paramに比較する顔写真を設定
-# 必要であれば、golden-eagleと通常の精度評価を調整
+# before_param, after_paramに比較する顔写真のPATHを追加
+# 初期値を設定済、必要であればgolden-eagleと通常の精度評価を調整
 .env
 
 # 起動 http://localhost:8000/
@@ -45,4 +47,4 @@ python manage.py runserver
 
 _※ 上記設定例は、必要があれば更新する。_
 
-> 更新: 2025/08/27 🆙
+> 更新: 2025/08/28 🆙
