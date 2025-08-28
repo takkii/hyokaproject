@@ -13,6 +13,18 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+load_dotenv(verbose=True)
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+NME = os.environ.get("NAME")
+USR = os.environ.get("USER")
+PWD = os.environ.get("PASSWORD")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -75,9 +87,9 @@ WSGI_APPLICATION = 'hyokaproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hyokaproject_develop',
-        'USER': 'root',
-        'PASSWORD': 'password',
+        'NAME': str(NME),
+        'USER': str(USR),
+        'PASSWORD': str(PWD),
     }
 }
 
