@@ -19,16 +19,11 @@
 - [x] golden-eagle、上記と同様に精度評価の浮動小数点数を.envから呼び出す仕様にする
 
 ```markdown
-# プロジェクトに移動
+# プロジェクトに移動する
 cd hyokaproject
 
-# 依存ライブラリ解消
+# 依存ライブラリ解消する
 pip3 install -r requirements.txt 
-
-# 79，80行目付近, ユーザ名とパスワードなどローカルDB用に変更
-hyokaproject/settings.py
-
-※ DBは現在使わないので、起動のために必要。
 
 # mysql or mariadb、hyokaproject_developを手動で作る
 mysql -u root -p
@@ -37,8 +32,12 @@ create database hyokaproject_develop;
 # DBマイグレーションをする
 python manage.py migrate
 
+※ DBは現在使わないので、起動のために必要
+
 # before_param, after_paramに比較する顔写真のPATHを追加
 # 初期値を設定済、必要であればgolden-eagleと通常の精度評価を調整
+# hyokaproject/settings.py
+# 79-80行目付近のユーザ名とパスワードなどを.envに設定する
 .env
 
 # 起動 http://localhost:8000/
@@ -47,4 +46,4 @@ python manage.py runserver
 
 _※ 上記設定例は、必要があれば更新する。_
 
-> 更新: 2025/08/28 🆙
+> 更新: 2025/08/29 🆙
