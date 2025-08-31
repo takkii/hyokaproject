@@ -1,3 +1,4 @@
+beautifulsoup4
 cmake
 django
 dlib
@@ -8,3 +9,4 @@ mysqlclient
 numpy
 opencv-python
 python-dotenv
+requests
