@@ -7,6 +7,6 @@ res = requests.get('http://localhost:8000/hyokapp/')
 # レスポンスの HTML から BeautifulSoup オブジェクトを作る
 soup = BeautifulSoup(res.text, 'html.parser')
 
-# title タグの文字列を取得する
+# h1 タグの文字列を取得する
 h1_text = soup.find('h1').get_text()
 print(h1_text)
