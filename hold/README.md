@@ -1,3 +1,5 @@
 ### 比較したい顔写真の保存先
 
-> 現在、単一画像同士の比較のみです。
+> [picture](https://github.com/takkii/picture)プロジェクトで予め顔写真を用意します。
+
+使い方、[こちら](https://github.com/takkii/picture/wiki/manual)。
