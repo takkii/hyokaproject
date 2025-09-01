@@ -10,7 +10,7 @@
 - [x] python-dotenv、通常の精度評価の浮動小数点数やPATHの直書きを封じる
 - [x] golden-eagle、上記と同様に精度評価の浮動小数点数を.envから呼び出す仕様にする
 - [x] bakachon、接続完了。2度呼び出されたときは2度目を消す。
-- [x] 画像変換処理、JPEG→GIF。再読み込みをするとこの処理周りでVALUE ERRORを起こす。
+- [x] 画像変換処理、JPEG→GIF。多重アクセスするとRuntimeErrorを発生させる。
 - [x] スクレイピング、scriping.pyを実行で表示されている文字列を取得できる。
 
 ```markdown
