@@ -10,6 +10,7 @@ import traceback
 from django.shortcuts import render
 from typing import Optional
 
+from PIL import Image
 from os.path import join, dirname
 from dotenv import load_dotenv
 
@@ -26,6 +27,25 @@ LON = os.environ.get("lo_num") or ""
 
 # Accuracy Evaluation Project
 def index(request):
+    # face picture save path
+    img_jpg = './Images/face.jpg'
+
+    # create image file face.gif
+    img_gif = './Images/face.gif'
+
+    # face picture path
+    is_file_jpg = os.path.isfile(img_jpg)
+    is_file_gif = os.path.isfile(img_gif)
+
+    # if jpeg image to path
+    if is_file_jpg and not is_file_gif:
+        img_jpg = './Images/face.jpg'
+        img = Image.open(str(img_jpg))
+        img.save('./Images/face.gif', 'gif')
+        print('create image file ./Images/face.gif')
+    else:
+        pass
+
     # Add exception handling.
     try:
         # Specify the path of the face photo to be compared.
