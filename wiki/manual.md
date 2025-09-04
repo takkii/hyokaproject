@@ -36,9 +36,20 @@ python manage.py migrate
 .env
 
 # 起動 http://localhost:8000/
-python manage.py runserver  
+python manage.py runserver
+
+# zinbeijettをインストール
+git clone git@github.com:takkii/zinbeijett.git
+gem build zinbeijett.gemspec
+gem install zinbeijett-3.0.1.pre.2025.08.09.gem
+
+# pass.txt内探索
+aqua -z pass.txt TRUE
+# 1 : TRUE
 ```
 
 _※ 上記設定例は、必要があれば更新する。_
 
-> 更新: 2025/09/01 🆙
+pass.txtは会員制のパスカード(顔パス)のようなものと考えるとよい。
+
+> 更新: 2025/09/05 🆙
