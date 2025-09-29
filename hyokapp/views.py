@@ -1,18 +1,17 @@
-import face_recognition
-import golden_eagle as ga
 import gc
-import numpy as np
-import numpy.typing as npt
 import os
 import random
 import traceback
-
-from django.shortcuts import render
+from os.path import dirname, join
 from typing import Optional
 
-from PIL import Image
-from os.path import join, dirname
+import face_recognition
+import golden_eagle as ga
+import numpy as np
+import numpy.typing as npt
+from django.shortcuts import render
 from dotenv import load_dotenv
+from PIL import Image
 
 load_dotenv(verbose=True)
 
@@ -49,10 +48,8 @@ def index(request):
     # Add exception handling.
     try:
         # Specify the path of the face photo to be compared.
-        my_before = face_recognition.load_image_file(
-            os.path.expanduser(str(BFP)))
-        my_after = face_recognition.load_image_file(
-            os.path.expanduser(str(AFP)))
+        my_before = face_recognition.load_image_file(os.path.expanduser(str(BFP)))
+        my_after = face_recognition.load_image_file(os.path.expanduser(str(AFP)))
 
         # facecompare version.
         print("golden-eagle_version: " + ga.__version__)
@@ -67,7 +64,7 @@ def index(request):
         en_b = face_recognition.face_encodings(my_before)[0]
         en_a = face_recognition.face_encodings(my_after)[0]
         face_d: npt.NDArray = face_recognition.face_distance([en_b], en_a)
-        hyoka = (np.floor(face_d * 1000).astype(int) / 1000)
+        hyoka = np.floor(face_d * 1000).astype(int) / 1000
 
         # Displays phrases from the Hyakunin Isshu at random.
         hyaku: Optional[str] = '/hyokapp/txt/hyakunin.txt'
@@ -83,17 +80,13 @@ def index(request):
                 issue: Optional[list] = [s.rstrip() for s in nin]
                 mark: Optional[str] = str(random.choice(issue))
                 print("⭕️ hyoka_accuracy: " + str(hyoka))
-                return render(request,
-                              'hyokapp/index.html',
-                              context={"check": mark})
+                return render(request, 'hyokapp/index.html', context={"check": mark})
 
         # Values of lose or higher are expected.
         elif not hyoka.astype(np.float64)[0] < lose:
             # Please use a different photo as it does not meet the criteria.
             fail = "❎️ lose: " + str(lose) + " < hyoka_accuracy: " + str(hyoka)
-            return render(request,
-                          'hyokapp/index.html',
-                          context={"failed": fail})
+            return render(request, 'hyokapp/index.html', context={"failed": fail})
 
         # Usually not reached.
         else:
