@@ -1,9 +1,8 @@
 import os
+from os.path import dirname, join
+
 import bakachon as baka
-
 from django.apps import AppConfig
-
-from os.path import join, dirname
 from dotenv import load_dotenv
 
 load_dotenv(verbose=True)
