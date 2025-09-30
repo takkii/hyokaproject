@@ -18,7 +18,7 @@
 cd hyokaproject
 
 # 依存ライブラリ解消する
-pip3 install -r requirements.txt 
+pip3 install -r requirements.txt
 
 # mysql or mariadb、hyokaproject_developを手動で作る
 mysql -u root -p
@@ -50,8 +50,8 @@ aqua -z pass.txt TRUE
 
 _※ 設定例、開発または本番環境などに応じて適宜変更する。_
 
-☆メンバーズカード(pass.txt)、中のメッセージが変更されると動作しない。
+☆nyasocom_sun_pg_win、メンバーズカード(pass.txt)中のメッセージが変更されると動作しない。
 
-☆発行するとき、顔認識システムを起動するか手動でメンバーズカードを作成する必要がある。
+→ 発行するとき、顔認識システムを起動するか手動でメンバーズカードを作成する必要がある。
 
-> 更新: 2025/09/29 🆙
+> 更新: 2025/09/30 🆙
