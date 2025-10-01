@@ -60,6 +60,7 @@ def index(request):
         # value is 0.6 and lower numbers make face comparisons more strict:
         ga.compare_before_after(my_before, my_after, float(ga_lose))
 
+        # Define again, set of values.
         before_image = face_recognition.load_image_file(os.path.expanduser(str(BFP)))
         after_image = face_recognition.load_image_file(os.path.expanduser(str(AFP)))
 
