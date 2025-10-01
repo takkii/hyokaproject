@@ -60,9 +60,12 @@ def index(request):
         # value is 0.6 and lower numbers make face comparisons more strict:
         ga.compare_before_after(my_before, my_after, float(ga_lose))
 
+        before_image = face_recognition.load_image_file(os.path.expanduser(str(BFP)))
+        after_image = face_recognition.load_image_file(os.path.expanduser(str(AFP)))
+
         # The data is processed as a feature quantity.
-        en_b = face_recognition.face_encodings(my_before)[0]
-        en_a = face_recognition.face_encodings(my_after)[0]
+        en_b = face_recognition.face_encodings(before_image)[0]
+        en_a = face_recognition.face_encodings(after_image)[0]
         face_d: npt.NDArray = face_recognition.face_distance([en_b], en_a)
         hyoka = np.floor(face_d * 1000).astype(int) / 1000
 
@@ -83,7 +86,7 @@ def index(request):
                 return render(request, 'hyokapp/index.html', context={"check": mark})
 
         # Values of lose or higher are expected.
-        elif not hyoka.astype(np.float64)[0] < lose:
+        elif not hyoka.astype(np.float64)[0] < float(lose):
             # Please use a different photo as it does not meet the criteria.
             fail = "❎️ lose: " + str(lose) + " < hyoka_accuracy: " + str(hyoka)
             return render(request, 'hyokapp/index.html', context={"failed": fail})
