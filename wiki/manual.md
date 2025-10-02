@@ -12,7 +12,7 @@
 - [x] bakachon、接続完了。2度呼び出されたときは2度目を手動で消す。
 - [x] 画像変換処理、JPEG→GIF。多重アクセスするとRuntimeErrorを発生させる。
 - [x] 全体のリファクタリング、nyasocom_sun_pg_winに寄せる。
-- [x] Python3の仕様?、値を2回被せると空(リストや文字列など)になるため再度値を定義し直した。
+- [x] Python3の仕様?、値の定義を2回以上読み込むと空|null?になるため再度値を定義し直した。
 - [x] 顔写真を撮影するときは、照明を点けて明るいところで撮影してください。
 
 ```markdown
@@ -37,13 +37,11 @@ python manage.py migrate
 # 79-80行目付近のユーザ名とパスワードなどを.envに設定する
 .env
 
-# 起動 http://localhost:8000/
+# 起動 http://localhost:8000/hyokapp/
 python manage.py runserver
 
-# zinbeijettをインストール
-git clone git@github.com:takkii/zinbeijett.git
-gem build zinbeijett.gemspec
-gem install zinbeijett-3.0.1.pre.2025.08.09.gem
+# インストール sheltered-girl
+gem install sheltered-girl
 
 # pass.txt内探索
 aqua -z pass.txt TRUE
@@ -54,4 +52,4 @@ _※ nyasocom_sun_pg_win、メンバーズカード(pass.txt)中のメッセー�
 
 → 発行するとき、顔認識システムを起動するか手動でメンバーズカードを作成(中身の設定含む)する必要がある。
 
-> 更新: 2025/10/01 🆙
+> 更新: 2025/10/02(誕生日🎂) 🆙
