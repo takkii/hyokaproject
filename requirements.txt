@@ -4,7 +4,6 @@ cmake
 django
 dlib
 face-recognition
-golden-eagle
 imutils
 mysqlclient
 numpy
