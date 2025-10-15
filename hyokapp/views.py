@@ -5,8 +5,8 @@ import traceback
 from os.path import dirname, join
 from typing import Optional
 
+import cv2
 import face_recognition
-import golden_eagle as ga
 import numpy as np
 import numpy.typing as npt
 from django.shortcuts import render
@@ -20,7 +20,6 @@ load_dotenv(dotenv_path)
 
 BFP = os.environ.get("before_param")
 AFP = os.environ.get("after_param")
-GAN = os.environ.get("ga_num") or ""
 LON = os.environ.get("lo_num") or ""
 
 
@@ -47,28 +46,29 @@ def index(request):
 
     # Add exception handling.
     try:
+        before = os.path.expanduser(str(BFP))
+        after = os.path.expanduser(str(AFP))
+
         # Specify the path of the face photo to be compared.
-        my_before = face_recognition.load_image_file(os.path.expanduser(str(BFP)))
-        my_after = face_recognition.load_image_file(os.path.expanduser(str(AFP)))
+        my_before = face_recognition.load_image_file(before)
+        my_after = face_recognition.load_image_file(after)
 
-        # facecompare version.
-        print("golden-eagle_version: " + ga.__version__)
+        before_enc = cv2.cvtColor(my_before, cv2.COLOR_BGR2RGB)
+        after_enc = cv2.cvtColor(my_after, cv2.COLOR_BGR2RGB)
 
-        # golden-eagle accuary number.
-        ga_lose: Optional[str] = GAN
-
-        # value is 0.6 and lower numbers make face comparisons more strict:
-        ga.compare_before_after(my_before, my_after, float(ga_lose))
-
-        # Define again, set of values.
-        before_image = face_recognition.load_image_file(os.path.expanduser(str(BFP)))
-        after_image = face_recognition.load_image_file(os.path.expanduser(str(AFP)))
+        # The default is “hog”.
+        lo_before = face_recognition.face_locations(my_before, model='cnn')[0]
+        lo_after = face_recognition.face_locations(my_after, model='cnn')[0]
 
         # The data is processed as a feature quantity.
-        en_b = face_recognition.face_encodings(before_image)[0]
-        en_a = face_recognition.face_encodings(after_image)[0]
+        en_b = face_recognition.face_encodings(before_enc)[0]
+        en_a = face_recognition.face_encodings(after_enc)[0]
+
+        cv2.rectangle(my_before, (lo_before[3], lo_before[0]), (lo_before[1], lo_before[2]), (0, 255, 0), 3)
+        cv2.rectangle(my_after, (lo_after[3], lo_after[0]), (lo_after[1], lo_after[2]), (0, 255, 0), 3)
+
         face_d: npt.NDArray = face_recognition.face_distance([en_b], en_a)
-        hyoka = np.floor(face_d * 1000).astype(int) / 1000
+        hyoka: npt.DTypeLike = np.floor(face_d * 1000).astype(int) / 1000
 
         # Displays phrases from the Hyakunin Isshu at random.
         hyaku: Optional[str] = '/hyokapp/txt/hyakunin.txt'
