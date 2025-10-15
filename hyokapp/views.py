@@ -67,6 +67,14 @@ def index(request):
         cv2.rectangle(my_before, (lo_before[3], lo_before[0]), (lo_before[1], lo_before[2]), (0, 255, 0), 3)
         cv2.rectangle(my_after, (lo_after[3], lo_after[0]), (lo_after[1], lo_after[2]), (0, 255, 0), 3)
 
+        cv2.startWindowThread()
+        cv2.imshow('Before picture images.', my_before)
+        cv2.imshow('After picture images.', my_after)
+        cv2.waitKey(15000)
+        cv2.waitKey(1)
+        cv2.destroyAllWindows()
+        cv2.waitKey(1)
+
         face_d: npt.NDArray = face_recognition.face_distance([en_b], en_a)
         hyoka: npt.DTypeLike = np.floor(face_d * 1000).astype(int) / 1000
 
