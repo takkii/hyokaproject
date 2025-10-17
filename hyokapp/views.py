@@ -103,7 +103,7 @@ def index(request):
         # Usually not reached.
         else:
             # Unique exception occurrence.
-            raise ValueError("Please check the passcode for your face photo.")
+            raise ValueError("hyoka accuracy is diable, Please select diffrent picture.")
 
     # TraceBack.
     except Exception:
