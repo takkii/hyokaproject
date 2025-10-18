@@ -46,6 +46,7 @@ def index(request):
 
     # Add exception handling.
     try:
+        # Destination for the two images.
         before = os.path.expanduser(str(BFP))
         after = os.path.expanduser(str(AFP))
 
@@ -53,10 +54,14 @@ def index(request):
         my_before = face_recognition.load_image_file(before)
         my_after = face_recognition.load_image_file(after)
 
+        # A list of 128-dimensional face recognition before/after encode.
         before_enc = cv2.cvtColor(my_before, cv2.COLOR_BGR2RGB)
         after_enc = cv2.cvtColor(my_after, cv2.COLOR_BGR2RGB)
 
-        # The default is “hog”.
+        # Which face detection model to use.
+        # "hog" is less accurate but faster on CPUs.
+        # "cnn" is a more accurate deep-learning model,
+        # which is GPU/CUDA accelerated (if available) / The default is "hog".
         lo_before = face_recognition.face_locations(my_before, model='cnn')[0]
         lo_after = face_recognition.face_locations(my_after, model='cnn')[0]
 
@@ -64,9 +69,11 @@ def index(request):
         en_b = face_recognition.face_encodings(before_enc)[0]
         en_a = face_recognition.face_encodings(after_enc)[0]
 
+        # Add a square green line around the face.
         cv2.rectangle(my_before, (lo_before[3], lo_before[0]), (lo_before[1], lo_before[2]), (0, 255, 0), 3)
         cv2.rectangle(my_after, (lo_after[3], lo_after[0]), (lo_after[1], lo_after[2]), (0, 255, 0), 3)
 
+        # Launch two images.
         cv2.startWindowThread()
         cv2.imshow('Before picture images.', my_before)
         cv2.imshow('After picture images.', my_after)
@@ -75,6 +82,7 @@ def index(request):
         cv2.destroyAllWindows()
         cv2.waitKey(1)
 
+        # hyoka_accuracy calc / result.
         face_d: npt.NDArray = face_recognition.face_distance([en_b], en_a)
         hyoka: npt.DTypeLike = np.floor(face_d * 1000).astype(int) / 1000
 
