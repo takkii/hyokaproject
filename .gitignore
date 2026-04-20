@@ -6,6 +6,9 @@ hyokaproject/__pycache__/*
 # Ignore, Images folder
 Images/face.*
 
-# Settings, folder.
+# Ignore, Settings folder.
 .idea/*
 .venv/*
+
+# Ignore.
+.env
