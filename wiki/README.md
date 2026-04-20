@@ -14,7 +14,7 @@ create database hyokaproject_develop;
 # DBマイグレーションをする
 python manage.py migrate
 
-※ DBは現在使わないので、起動のために必要
+※ 今回、DBは使わないので起動のために必要です。
 
 # before_param, after_paramに比較する顔写真のPATHを追加
 # 初期値を設定済、必要であればgolden-eagleと通常の精度評価を調整
@@ -22,17 +22,10 @@ python manage.py migrate
 # 79-80行目付近のユーザ名とパスワードなどを.envに設定する
 .env
 
-# 起動 http://localhost:8000/hyokapp/
-python manage.py runserver
-
-# インストール sheltered-girl
-gem install sheltered-girl
-
-# pass.txt内探索
-aqua -z pass.txt TRUE
-# 1 : TRUE
+# 起動 http://localhost/hyokapp/
+python manage.py runserver localhost:80
 ```
 
-_※ 顔認識システムはにゃそこん参ぴーじーうぃんと併用することを想定しています。_
+※ hyokaproject.log、顔認識対象者(名前: 英文字)を探索する関数で操作を想定しています。
 
-> 更新: 2025/10/11 🆙
+> 更新: 2026/04/20 🆙
