@@ -21,12 +21,14 @@ dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
 BFP = os.environ.get("before_param")
-LON = os.environ.get("lo_num") or ""
-PCI = os.environ.get("picture_images")
+ISU = os.environ.get("issus")
 ONM = os.environ.get("one_name")
+PCI = os.environ.get("picture_images")
+
 FLN = os.environ.get("fl_num") or ""
-INN = os.environ.get("int_num") or ""
 ICO = os.environ.get("int_conn") or ""
+INN = os.environ.get("int_num") or ""
+LON = os.environ.get("lo_num") or ""
 
 
 # Accuracy Evaluation Project
@@ -128,7 +130,7 @@ def index(request):
                     best_match_index = np.argmin(face_distances)
 
                     # Displays phrases from the Hyakunin Isshu at random.
-                    hyaku: Optional[str] = '/hyokapp/txt/hyakunin.txt'
+                    hyaku: Optional[str] = str(ISU)
 
                     if matches[best_match_index]:
                         name = known_face_names[best_match_index]
