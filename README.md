@@ -4,7 +4,7 @@
 </div>
 <br />
 <div align="center">
-  <img src="./logo/python.gif" alt="python logo / data processing">
+  <img src="./logo/hyoka.gif" alt="ルート計算で解決?!">
 </div>
 <br />
 <hr />
