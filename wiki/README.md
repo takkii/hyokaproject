@@ -50,6 +50,8 @@ fl_num = 0.4
 int_num = 100
 # Webcam Built-in camera (0 or 1) | view.py
 int_conn = 0
+# 百人一首
+issus = '/hyokapp/txt/hyakunin.txt'
 ```
 
 ※ hyokaproject.log、顔認識対象者(名前: 英文字)を探索する関数で操作を想定しています。
