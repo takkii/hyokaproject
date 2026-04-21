@@ -10,7 +10,6 @@ import cv2
 import face_recognition
 import imutils
 import numpy as np
-from django.shortcuts import render
 from dotenv import load_dotenv
 from PIL import Image, ImageTk
 
