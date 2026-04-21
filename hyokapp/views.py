@@ -1,6 +1,5 @@
 import gc
 import os
-import random
 import tkinter as tk
 import traceback
 from logging import DEBUG, Formatter, getLogger, handlers
@@ -21,7 +20,6 @@ dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
 BFP = os.environ.get("before_param")
-ISU = os.environ.get("issus")
 ONM = os.environ.get("one_name")
 PCI = os.environ.get("picture_images")
 
@@ -129,22 +127,9 @@ def index(request):
                         known_face_encodings, face_encoding)
                     best_match_index = np.argmin(face_distances)
 
-                    # Displays phrases from the Hyakunin Isshu at random.
-                    hyaku: Optional[str] = str(ISU)
-
                     if matches[best_match_index]:
                         name = known_face_names[best_match_index]
                         logger.debug(name)
-
-                        # The words from Hyakunin Isshu are displayed randomly.
-                        with open(os.getcwd() + hyaku) as r_meth:
-                            nin: Optional[list] = list(r_meth.readlines())
-                            issue: Optional[list] = [s.rstrip() for s in nin]
-                            mark: Optional[str] = str(random.choice(issue))
-                            print("⭕️ hyoka_accuracy: " + str(FLN))
-                            return render(request,
-                                          'hyokapp/index.html',
-                                          context={"check": mark})
 
                     face_names.append(name)
 
