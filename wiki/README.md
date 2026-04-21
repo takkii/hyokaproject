@@ -6,6 +6,7 @@
 - [x] 画像変換処理、JPEG→GIF。意図しない例外を発生しないように変更しました。
 - [x] 値の定義を2回読もうとすると何も表示しないため、再度値を定義し直しました。
 - [x] golden-eagle、requirements.txtを移植しました。
+- [x] golden-eagle、binフォルダ内UNIXシェル(meteor、flare、clarifyなど)をデータ分析に使って下さい。 
 - [x] hyokaproject.log、データ分析の対象にしました。
 - [x] hyokaproject.log、システム停止時などのログも出力されるため気になる人は手動で消して下さい。
 - [x] リアルタイム顔認識に対応しました。
