@@ -25,7 +25,6 @@ PCI = os.environ.get("picture_images")
 FLN = os.environ.get("fl_num") or ""
 ICO = os.environ.get("int_conn") or ""
 INN = os.environ.get("int_num") or ""
-LON = os.environ.get("lo_num") or ""
 
 
 # Accuracy Evaluation Project
