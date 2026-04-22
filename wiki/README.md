@@ -6,9 +6,9 @@
 - [x] 画像変換処理、JPEG→GIF。意図しない例外を発生しないように変更しました。
 - [x] 値の定義を2回読もうとすると何も表示しないため、再度値を定義し直しました。
 - [x] golden-eagle、requirements.txtを移植しました。
-- [x] golden-eagle、binフォルダ内UNIXシェル(meteor、flare、clarifyなど)をデータ分析に使って下さい。 
+- [x] golden-eagle、binフォルダ内UNIXシェル(meteor、flare、clarifyなど)をデータ分析に使って下さい。
 - [x] hyokaproject.log、データ分析の対象にしました。
-- [x] hyokaproject.log、システム停止時などのログも出力されるため気になる人は手動で消して下さい。
+- [x] hyokaproject.log、目視確認後システム停止時のログを消し調整してください。
 - [x] リアルタイム顔認識に対応しました。
 - [x] リアルタイム顔認識のため、bootstrap/style.css/index.htmlを廃止しました。
 - [x] wiki/README.md内.env設定をhyokaproject直下に貼り付けてお使い下さい。
@@ -48,8 +48,6 @@ python manage.py runserver localhost:80
 ```markdown
 # Equal Face Photo origin folder.
 before_param = "./Images/face.gif"
-# Don't change.
-lo_num = 0.289
 # DB Name.
 NAME = "hyokaproject_develop"
 # DB User or admin
@@ -69,4 +67,4 @@ int_num = 100
 int_conn = 0
 ```
 
-_更新履歴: 2026/04/21🔄_
+_更新履歴: 2026/04/23🔄_
