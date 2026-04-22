@@ -8,7 +8,7 @@
 - [x] golden-eagle、requirements.txtを移植しました。
 - [x] golden-eagle、binフォルダ内UNIXシェル(meteor、flare、clarifyなど)をデータ分析に使って下さい。
 - [x] hyokaproject.log、データ分析の対象にしました。
-- [x] hyokaproject.log、システム停止時などのログも出力されるため気になる人は手動で消して下さい。
+- [x] hyokaproject.log、目視確認後システム停止時のログを消し調整してください。
 - [x] リアルタイム顔認識に対応しました。
 - [x] リアルタイム顔認識のため、bootstrap/style.css/index.htmlを廃止しました。
 - [x] wiki/README.md内.env設定をhyokaproject直下に貼り付けてお使い下さい。
