@@ -12,3 +12,6 @@ Images/face.*
 
 # Ignore.
 .env
+
+# Ignore
+effect.txt
