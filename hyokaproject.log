@@ -1,7 +1,15 @@
-2026-04-23 05:52:18,649 : DEBUG : views.py - Takayuki
-2026-04-23 05:52:29,230 : DEBUG : views.py - Takayuki
-2026-04-23 05:52:33,942 : DEBUG : views.py - Takayuki
-2026-04-23 06:03:37,352 : DEBUG : views.py - Takayuki
-2026-04-23 06:03:47,417 : DEBUG : views.py - Takayuki
-2026-04-23 06:03:56,993 : DEBUG : views.py - Takayuki
-2026-04-23 06:04:02,443 : DEBUG : views.py - Takayuki
+2026-04-30 17:13:01,794 : DEBUG : views.py - Takayuki
+2026-04-30 17:13:06,496 : DEBUG : views.py - Takayuki
+2026-04-30 17:13:08,835 : ERROR : log.py - Internal Server Error: /hyokapp/
+Traceback (most recent call last):
+  File "C:\Users\sudok\scoop\apps\python313\current\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sudok\scoop\apps\python313\current\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudok\scoop\apps\python313\current\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: The view hyokapp.views.index didn't return an HttpResponse object. It returned None instead.
+2026-04-30 17:13:09,811 : WARNING : log.py - Not Found: /favicon.ico
