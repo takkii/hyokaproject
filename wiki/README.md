@@ -57,8 +57,8 @@ PASSWORD = "20070920"
 # Startup, face photo.
 picture_images = "./Images/face.jpg"
 bakachon_folder = "bakachon"
-# First Name, Takayuki.
-one_name = "Takayuki"
+# unidentified man
+one_name = "John Doe"
 # face-recognition
 fl_num = 0.4
 # Default settings, 100KB hyokaproject.log
