@@ -6,8 +6,9 @@
 - [x] 画像変換処理、JPEG→GIF。意図しない例外を発生しないように変更しました。
 - [x] 値の定義を2回読もうとすると何も表示しないため、再度値を定義し直しました。
 - [x] golden-eagle、requirements.txtを移植しました。
+- [x] hyokaproject.log、にゃそこん参ぴーじーうぃんの起動用に直接指定も可能です。
+- [x] hyokaproject.log、ログを書き出すために初回起動後リアルタイム顔認識を試してください。
 - [x] golden-eagle/bin/meteor、flare (UNIX Shell)を用いてeffect.txtを生成してください。
-- [x] hyokaproject.log、データ分析の対象にしました。
 - [x] リアルタイム顔認識に対応しました。
 - [x] リアルタイム顔認識のため、bootstrap/style.css/index.htmlを廃止しました。
 - [x] wiki/README.md内.env設定をhyokaproject直下に貼り付けてお使い下さい。
@@ -66,4 +67,4 @@ int_num = 100
 int_conn = 0
 ```
 
-_更新履歴: 2026/04/30🔄_
+_更新履歴: 2026/05/01🔄_
