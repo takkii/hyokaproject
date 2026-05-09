@@ -84,7 +84,7 @@ def index(request):
         # Initialize some variables
         face_locations = []
         face_encodings = []
-        face_names = []
+        face_names = []     # type: ignore
         process_this_frame = True
 
         while True:
@@ -97,10 +97,10 @@ def index(request):
 
             # Only process every other frame of video to save time
             if process_this_frame:
-                # Convert frame of BGR2RGB for faster face recognition processing
+                # Convert frame of BGR2RGB
                 small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
 
-                # Convert the image to COLOR_BGR2RGB color (which face_recognition uses)
+                # Convert the image to COLOR_BGR2RGB color
                 rgb_small_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
 
                 # The default is "hog" / other select "cnn"
@@ -120,7 +120,7 @@ def index(request):
                         tolerance=float(lose))
                     name = "Unknown"
 
-                    # Or instead, use the known face with the smallest distance to the new face
+                    # The known face with the smallest distance to the new face
                     face_distances = face_recognition.face_distance(
                         known_face_encodings, face_encoding)
                     best_match_index = np.argmin(face_distances)
@@ -136,7 +136,7 @@ def index(request):
             # Display the results
             for (top, right, bottom,
                  left), name in zip(face_locations, face_names):
-                # Scale back up face locations since the frame we detected in was scaled to 1/4 size
+                # The frame we detected in was scaled to 1/4 size
                 top *= 4
                 right *= 4
                 bottom *= 5
