@@ -61,5 +61,8 @@
 #include <condition_variable>
 #include <future>
 
+#include <rice/rice.hpp>
+using namespace Rice;
+
 using namespace std::literals;
 using namespace std;
