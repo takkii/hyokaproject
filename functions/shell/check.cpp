@@ -1,10 +1,6 @@
-# include "all.h"  // IWYU pragma: export
+# include "all_check.h"  // IWYU pragma: export
 
-namespace Rice::detail {
-class Validation {
-public:
-    Validation() {};
-    void check() { 
+int main(void){ 
         try
         {
             // reading text file.
@@ -39,15 +35,6 @@ public:
           cout << "runtime error : " << e.what() << endl;
         } catch (const exception& e) {
           cout << "some exception : " << e.what() << endl;
-        }
     }
-};
-
-extern "C" {
-void Init_validation() {
-    Data_Type<Validation> rb_cValidation = define_class<Validation>("Validation")
-    .define_constructor(Constructor<Validation>())
-    .define_method("check", &Validation::check);
-    }
-  }
+    return 0;
 }
