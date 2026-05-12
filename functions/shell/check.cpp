@@ -5,7 +5,7 @@ int main(void){
         {
             // reading text file.
             typedef istream_iterator<char> Istr;
-            string filename = "./effect.txt";
+            string filename = "../../effect.txt";
             ifstream fin(filename, ios::in);
             fin >> noskipws;
             Istr in(fin), eof;
