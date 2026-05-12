@@ -1,11 +1,18 @@
 ### search.cpp
 
-> RubyGems/grouse
->
-> ./lib/grouse.rb
->
-> validation_check function
+```markdown
+# ./functions (rice関連ファイルはビルドのみ)
+make distclean
+ruby extconf.rb
+make
 
-_リアルタイム顔認識システムをOSなどで、ログインするために使用するときに使う予定。_
+# ./functions/shell
+g++ -o check check.cpp
+./check
 
-※ 既存のC++コードを修正しました。Qt、GUIパーツ(ボタン)を組み合わせるとよいかもしれない。
+> Match word contain Doe in ../../effect.txt
+```
+
+_リアルタイム顔認識システムをOSなどで、ログインする場合の想定です。_
+
+※ 既存のC++コードを修正しました。適宜、QtのGUIパーツ(ボタン)を組み合わせるとよいかもしれない。
