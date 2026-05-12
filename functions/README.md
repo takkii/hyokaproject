@@ -1,4 +1,6 @@
-### search.cpp
+### C++プロジェクトの仕様
+
+> ファイルを読み込み、指定する単語にマッチするとき条件分岐を行う。
 
 ```markdown
 # ./functions (rice関連ファイルはビルドのみ)
@@ -11,8 +13,11 @@ g++ -o check check.cpp
 ./check
 
 > Match word contain Doe in ../../effect.txt
+
+# ./functions/search
+searchプロジェクトをVisualStudioでビルドしてください。
 ```
 
-_リアルタイム顔認識システムをOSなどで、ログインする場合の想定です。_
+_リアルタイム顔認識システムをOSなどで、ログイン認証する場合の想定です。_
 
-※ 既存のC++コードを修正しました。適宜、QtのGUIパーツ(ボタン)を組み合わせるとよいかもしれない。
+>  ※ 適宜、QtのGUIパーツ(ボタン)を組み合わせるとよいかもしれない。
